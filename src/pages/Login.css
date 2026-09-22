@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+.login-page {
+  --green: #2f3b2c;
+  --green-hover: #3d4b39;
+  --cream: #efebdf;
+  --field: #fbfaf6;
+  --border: #d9d4c4;
+  --text: #2a3327;
+  --muted: #5a6256;
+  --placeholder: #6b7367;
+  --error: #a32a1e;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 6vw, 6rem);
+  background: #ffffff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--green);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.topbar__signup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------- Buttons (shared by "Sign up" and "Log in") ---------- */
+.button {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--green-hover);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button--block {
+  width: 100%;
+  padding: 0.85rem 1rem;
+}
+
+/* ---------- Form ---------- */
+.login-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem 4rem;
+}
+
+.login-form {
+  display: grid;
+  gap: 1.1rem;
+  width: min(26rem, 100%);
+}
+
+.login-form h1 {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: var(--field);
+  font: inherit;
+  color: var(--text);
+}
+
+.field input::placeholder {
+  color: var(--placeholder);
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 3rem;
+}
+
+.toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  transform: translateY(-50%);
+  padding: 0.25rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--green);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+
+.form-error {
+  margin: 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--error);
+  color: var(--error);
+  font-size: 0.9rem;
+}
+
+.help {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Keyboard focus ---------- */
+.field input:focus-visible,
+.button:focus-visible,
+.toggle:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 520px) {
+  .topbar__signup span {
+    display: none;
+  }
+}
