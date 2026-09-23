@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import { Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Change this one line to rename the system on this page.
 const APP_NAME = "Library";
@@ -45,9 +46,9 @@ export default function Login() {
 
         <div className="topbar__signup">
           <span>Don&rsquo;t have an account?</span>
-          <a className="button" href="/register">
-            Sign up
-          </a>
+          <Link className="button" to="/register">
+              Sign up
+          </Link>
         </div>
       </header>
 
