@@ -1,0 +1,93 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.admin-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  background: #2f3b2c;
+  color: #fff;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.admin-sidebar__brand {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 0.82rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.admin-sidebar__link:hover {
+  background: #3d4b39;
+}
+
+.admin-sidebar__link--active {
+  background: #3d4b39;
+  color: #fff;
+}
+
+.admin-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin-topbar {
+  padding: 0.9rem clamp(1rem, 3vw, 1.75rem);
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.admin-main {
+  padding: clamp(1rem, 3vw, 1.75rem);
+}
+
+@media (max-width: 640px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    padding: 0.75rem;
+  }
+  .admin-sidebar__brand {
+    display: none;
+  }
+  .admin-sidebar__nav {
+    flex-direction: row;
+  }
+}

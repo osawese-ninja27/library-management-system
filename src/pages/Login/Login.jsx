@@ -15,8 +15,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event) {
-    // Stop the browser from reloading the page when the form is submitted.
     event.preventDefault();
+    console.log("API URL is:", import.meta.env.VITE_API_URL);n
     setError("");
 
     if (!email.trim() || !password) {
@@ -26,9 +26,27 @@ export default function Login() {
 
     setLoading(true);
     try {
-      // TODO: send { email, password } to the Express backend here.
-      // For now we only log it, so we can check the form works.
-      console.log("Login attempt:", { email });
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Login failed. Try again.");
+        return;
+      }
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      if (data.user.role === "admin") {
+        window.location.href = "/admin";
+      } else {
+        window.location.href = "/discover";
+      }
     } catch {
       setError("Could not reach the server. Try again in a moment.");
     } finally {

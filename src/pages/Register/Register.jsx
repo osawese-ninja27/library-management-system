@@ -1,8 +1,7 @@
 import { useState } from "react";
-import "./Login.css"; // reusing the same styles for consistency
+import "../Login/Login.css";
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
-
 
 const APP_NAME = "Library";
 
@@ -29,7 +28,7 @@ export default function Register() {
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/api/register", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
