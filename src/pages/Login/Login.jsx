@@ -16,7 +16,7 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log("API URL is:", import.meta.env.VITE_API_URL);n
+    console.log("API URL is:", import.meta.env.VITE_API_URL);
     setError("");
 
     if (!email.trim() || !password) {
@@ -72,7 +72,7 @@ export default function Login() {
 
       <main className="login-main">
         <form className="login-form" onSubmit={handleSubmit} noValidate>
-          <h1>Log in</h1>
+          <h1>Welcome </h1>
 
           <div className="field">
             <label htmlFor="email">Email</label>

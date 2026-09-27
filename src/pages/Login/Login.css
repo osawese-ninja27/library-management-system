@@ -1,20 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 .login-page {
-  --green: #2f3b2c;
-  --green-hover: #3d4b39;
-  --cream: #efebdf;
-  --field: #fbfaf6;
-  --border: #d9d4c4;
-  --text: #2a3327;
-  --muted: #5a6256;
-  --placeholder: #6b7367;
-  --error: #a32a1e;
+  --purple: #402250;
+  --purple-hover: #341c42;
+  --orange: #E77A02;
+  --orange-hover: #c96700;
+  --bg: #F7F5F2;
+  --field: #ffffff;
+  --border: #ECE8E2;
+  --text: #241B2B;
+  --muted: #656565;
+  --placeholder: #9A9A9A;
+  --error: #E11D2E;
 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--cream);
+  background: var(--bg);
   color: var(--text);
   font-family: "Inter", system-ui, sans-serif;
 }
@@ -27,15 +29,16 @@
   gap: 1rem;
   padding: 0.9rem clamp(1rem, 6vw, 6rem);
   background: #ffffff;
+  border-bottom: 1px solid var(--border);
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--green);
-  font-size: 1.25rem;
-  font-weight: 600;
+  color: var(--purple);
+  font-size: 1.1rem;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -43,25 +46,29 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 /* ---------- Buttons (shared by "Sign up" and "Log in") ---------- */
 .button {
   display: inline-block;
-  padding: 0.65rem 1.5rem;
+  padding: 0.65rem 1.4rem;
   border: 0;
-  border-radius: 6px;
-  background: var(--green);
+  border-radius: 12px;
+  background: var(--orange);
   color: #ffffff;
   font: inherit;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 0.875rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  transition: background 0.15s ease;
 }
 
 .button:hover:not(:disabled) {
-  background: var(--green-hover);
+  background: var(--orange-hover);
 }
 
 .button:disabled {
@@ -72,6 +79,7 @@
 .button--block {
   width: 100%;
   padding: 0.85rem 1rem;
+  font-size: 0.9rem;
 }
 
 /* ---------- Form ---------- */
@@ -86,30 +94,40 @@
   display: grid;
   gap: 1.1rem;
   width: min(26rem, 100%);
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 10px 30px rgba(64, 34, 80, 0.06);
 }
 
 .login-form h1 {
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
   text-align: center;
-  font-size: 2.25rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .field label {
   display: block;
   margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: left;
 }
 
 .field input {
   width: 100%;
-  padding: 0.85rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
   box-sizing: border-box;
-  background: var(--field);
+  background: #FBFAF8;
   font: inherit;
+  font-size: 0.9rem;
   color: var(--text);
 }
 
@@ -135,27 +153,27 @@
   background: none;
   font: inherit;
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--green);
+  font-weight: 600;
+  color: var(--purple);
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-
 .form-error {
   margin: 0;
   padding-left: 0.75rem;
-  border-left: 3px solid var(--error);
+  border-left: 3px var(--error);
   color: var(--error);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .help {
   margin: 0;
   text-align: center;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* ---------- Keyboard focus ---------- */
@@ -163,7 +181,7 @@
 .button:focus-visible,
 .toggle:focus-visible,
 .brand:focus-visible {
-  outline: 2px solid var(--green);
+  outline: 2px solid var(--orange);
   outline-offset: 2px;
 }
 
@@ -171,5 +189,8 @@
 @media (max-width: 520px) {
   .topbar__signup span {
     display: none;
+  }
+  .login-form {
+    padding: 1.75rem 1.25rem;
   }
 }
