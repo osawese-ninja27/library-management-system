@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { getToken } from "../../../utils/auth";
 import "./ManageBooks.css";
+import BookFormModal from "./BookFormModal";
 
 export default function ManageBooks() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [editingBook, setEditingBook] = useState(null);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/books`)
@@ -16,7 +19,7 @@ export default function ManageBooks() {
   async function handleDelete(id) {
     if (!confirm("Delete this book?")) return;
 
-    await await fetch(`${import.meta.env.VITE_API_URL}/api/books/${id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/books/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${getToken()}` },
     });
@@ -30,7 +33,7 @@ export default function ManageBooks() {
     <div className="manage-books">
       <div className="manage-books__header">
         <h1>Books</h1>
-        <button className="admin-button">Add Book</button>
+        <button className="admin-button" onClick={() => { setEditingBook(null); setShowModal(true); }}>Add Book</button>
       </div>
 
       <table className="admin-table">
