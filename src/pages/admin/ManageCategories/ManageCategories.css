@@ -1,0 +1,24 @@
+.category-add {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  max-width: 520px;
+}
+
+.category-add input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.category-add input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}

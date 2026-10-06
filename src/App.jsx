@@ -1,24 +1,44 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Discover from "./pages/Discover/Discover";
+import ComingSoon from "./pages/ComingSoon/ComingSoon";
+import UserLayout from "./components/UserLayout/UserLayout";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AdminLayout from "./pages/admin/AdminLayout/AdminLayout";
 import ManageBooks from "./pages/admin/ManageBooks/ManageBooks";
+import ManageCategories from "./pages/admin/ManageCategories/ManageCategories";
 
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/discover" element={<Discover />} />
-      <Route path="/" element={<Login />} />
 
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="books" element={<ManageBooks />} />
+      {/* Regular users */}
+      <Route element={<ProtectedRoute />}>
+        <Route element={<UserLayout />}>
+          <Route path="/discover" element={<Discover />} />
+          <Route path="/categories" element={<ComingSoon title="Categories" />} />
+          <Route path="/favorites" element={<ComingSoon title="Favorites" />} />
+          <Route path="/borrowed" element={<ComingSoon title="Borrow Book" />} />
+          <Route path="/settings" element={<ComingSoon title="Settings" />} />
+        </Route>
       </Route>
+
+      {/* Admin */}
+      <Route element={<ProtectedRoute adminOnly />}>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Navigate to="books" replace />} />
+          <Route path="books" element={<ManageBooks />} />
+          <Route path="categories" element={<ManageCategories />} />
+        </Route>
+      </Route>
+
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }
 
 export default App;
-

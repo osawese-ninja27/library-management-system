@@ -1,0 +1,48 @@
+.discover__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.discover__header h1 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.discover__header span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.discover__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem 1.25rem;
+}
+
+.discover__skeleton {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, #eceae6 25%, #f4f2ef 50%, #eceae6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.discover__empty,
+.discover__error {
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.discover__error {
+  color: var(--danger);
+}

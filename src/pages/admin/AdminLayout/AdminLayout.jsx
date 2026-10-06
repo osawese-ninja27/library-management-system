@@ -1,13 +1,11 @@
 import { Link, useLocation, Outlet } from "react-router-dom";
-import { LayoutDashboard, Book, Tag, Users, LogOut } from "lucide-react";
+import { Book, Tag, LogOut } from "lucide-react";
 import { logout, getUser } from "../../../utils/auth";
 import "./AdminLayout.css";
 
 const NAV_ITEMS = [
-  { label: "Overview", icon: LayoutDashboard, path: "/admin" },
   { label: "Books", icon: Book, path: "/admin/books" },
   { label: "Categories", icon: Tag, path: "/admin/categories" },
-  { label: "Users", icon: Users, path: "/admin/users" },
 ];
 
 export default function AdminLayout() {
@@ -17,7 +15,7 @@ export default function AdminLayout() {
   return (
     <div className="admin-layout">
       <aside className="admin-sidebar">
-        <div className="admin-sidebar__brand">Library Admin</div>
+        <div className="admin-sidebar__brand">DreamCode Library</div>
         <nav className="admin-sidebar__nav">
           {NAV_ITEMS.map(({ label, icon: Icon, path }) => (
             <Link
@@ -27,13 +25,13 @@ export default function AdminLayout() {
                 location.pathname === path ? "admin-sidebar__link--active" : ""
               }`}
             >
-              <Icon size={16} />
+              <Icon size={17} />
               <span>{label}</span>
             </Link>
           ))}
         </nav>
         <button className="admin-sidebar__link" onClick={logout}>
-          <LogOut size={16} />
+          <LogOut size={17} />
           <span>Log out</span>
         </button>
       </aside>
