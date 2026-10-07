@@ -28,7 +28,7 @@ export default function ManageBooks() {
     const q = search.trim().toLowerCase();
     if (!q) return books;
     return books.filter((b) =>
-      [b.title, b.genre, b.category_name].some((v) => (v || "").toLowerCase().includes(q))
+      [b.title, b.author, b.genre, b.category_name].some((v) => (v || "").toLowerCase().includes(q))
     );
   }, [books, search]);
 
@@ -112,7 +112,10 @@ export default function ManageBooks() {
                           <BookOpen size={16} strokeWidth={1.5} />
                         )}
                       </div>
-                      {book.title}
+                      <div>
+                        {book.title}
+                        {book.author && <div className="admin-table__sub">{book.author}</div>}
+                      </div>
                     </div>
                   </td>
                   <td>

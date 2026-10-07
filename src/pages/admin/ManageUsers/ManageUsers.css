@@ -1,0 +1,36 @@
+.manage-users__email {
+  font-weight: 500;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Red is reserved for problems, so only blocked users get it. */
+.status-pill--blocked {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.admin-button--small {
+  height: 34px;
+  padding: 0 0.9rem;
+  font-size: 0.8rem;
+}
+
+.admin-button--danger-ghost {
+  background: var(--surface);
+  color: var(--danger);
+  border: 1px solid var(--line);
+}
+
+.admin-button--danger-ghost:hover:not(:disabled) {
+  background: var(--danger-soft);
+  border-color: var(--danger-soft);
+}

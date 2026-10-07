@@ -6,6 +6,7 @@ import "./ManageBooks.css";
 function formFromBook(book) {
   return {
     title: book?.title || "",
+    author: book?.author || "",
     description: book?.description || "",
     genre: book?.genre || "",
     categoryId: book?.category_id || "",
@@ -83,6 +84,7 @@ export default function BookFormModal({ book, onClose, onSaved }) {
 
       const payload = {
         title: form.title,
+        author: form.author,
         description: form.description,
         genre: form.genre,
         categoryId: form.categoryId || null,
@@ -154,6 +156,11 @@ export default function BookFormModal({ book, onClose, onSaved }) {
             <label className="form-field">
               Title
               <input name="title" value={form.title} onChange={handleChange} placeholder="e.g. Things Fall Apart" />
+            </label>
+
+            <label className="form-field">
+              Author
+              <input name="author" value={form.author} onChange={handleChange} placeholder="e.g. Chinua Achebe" />
             </label>
 
             <div className="form-field__row">

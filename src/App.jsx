@@ -8,6 +8,8 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AdminLayout from "./pages/admin/AdminLayout/AdminLayout";
 import ManageBooks from "./pages/admin/ManageBooks/ManageBooks";
 import ManageCategories from "./pages/admin/ManageCategories/ManageCategories";
+import ManageUsers from "./pages/admin/ManageUsers/ManageUsers";
+import ChangePassword from "./pages/admin/ChangePassword/ChangePassword";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route index element={<Navigate to="books" replace />} />
           <Route path="books" element={<ManageBooks />} />
           <Route path="categories" element={<ManageCategories />} />
+          <Route path="users" element={<ManageUsers />} />
+          <Route path="password" element={<ChangePassword />} />
         </Route>
       </Route>
 

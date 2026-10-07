@@ -26,6 +26,7 @@ export default function BookDetail({ book, onClose }) {
 
         <div className="detail__body">
           <h2>{book.title}</h2>
+          {book.author && <p className="detail__author">by {book.author}</p>}
           <div className="detail__tags">
             {book.category_name && <span>{book.category_name}</span>}
             {book.genre && <span>{book.genre}</span>}
