@@ -1,0 +1,25 @@
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem 1.25rem;
+}
+
+.book-grid__skeleton {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, #eceae6 25%, #f4f2ef 50%, #eceae6 75%);
+  background-size: 200% 100%;
+  animation: book-grid-shimmer 1.3s infinite;
+}
+
+@keyframes book-grid-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-grid__skeleton {
+    animation: none;
+  }
+}

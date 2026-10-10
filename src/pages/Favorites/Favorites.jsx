@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { apiFetch } from "../../utils/api";
 import { filterBooks } from "../../utils/filterBooks";
 import PageHeader from "../../components/PageHeader/PageHeader";
@@ -7,30 +7,29 @@ import StatusMessage from "../../components/StatusMessage/StatusMessage";
 import BookGrid from "../../components/BookGrid/BookGrid";
 import BookGridSkeleton from "../../components/BookGrid/BookGridSkeleton";
 
-export default function Discover() {
-  const { query, filter, favoriteIds, toggleFavorite } = useOutletContext();
+// The user's favorite books. Same cards as Discover, but without the heart:
+// a book is added or removed from its heart on Discover or inside a category.
+export default function Favorites() {
+  const { query, filter } = useOutletContext();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    apiFetch("/api/books")
+    apiFetch("/api/favorites")
       .then(setBooks)
       .catch((err) => {
-        if (err.status !== 401) setError("Could not load books. Please try again.");
+        if (err.status !== 401) setError("Could not load your favorites. Please try again.");
       })
       .finally(() => setLoading(false));
   }, []);
 
   const visible = useMemo(() => filterBooks(books, query, filter), [books, query, filter]);
 
-  const showBooks = !loading && !error && visible.length > 0;
-  const showEmpty = !loading && !error && visible.length === 0;
-
   return (
-    <div className="discover">
+    <div className="favorites">
       <PageHeader
-        title="Discover"
+        title="Favorites"
         subtitle={
           !loading && !error ? `${visible.length} ${visible.length === 1 ? "book" : "books"}` : ""
         }
@@ -39,15 +38,21 @@ export default function Discover() {
       {loading && <BookGridSkeleton />}
       {error && <StatusMessage variant="error">{error}</StatusMessage>}
 
-      {showEmpty && (
+      {!loading && !error && books.length === 0 && (
         <StatusMessage>
-          {books.length === 0 ? "No books have been added yet." : "No books match your search."}
+          You haven&apos;t added any favorites yet.
+          <br />
+          Tap the heart on a book to save it here.
+          <br />
+          <Link to="/discover">Go to Discover</Link>
         </StatusMessage>
       )}
 
-      {showBooks && (
-        <BookGrid books={visible} favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
+      {!loading && !error && books.length > 0 && visible.length === 0 && (
+        <StatusMessage>No favorites match your search.</StatusMessage>
       )}
+
+      {!loading && !error && visible.length > 0 && <BookGrid books={visible} />}
     </div>
   );
 }

@@ -2,6 +2,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Discover from "./pages/Discover/Discover";
+import Categories from "./pages/Categories/Categories";
+import CategoryBooks from "./pages/Categories/CategoryBooks";
+import Favorites from "./pages/Favorites/Favorites";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
 import UserLayout from "./components/UserLayout/UserLayout";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -22,8 +25,9 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<UserLayout />}>
           <Route path="/discover" element={<Discover />} />
-          <Route path="/categories" element={<ComingSoon title="Categories" />} />
-          <Route path="/favorites" element={<ComingSoon title="Favorites" />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:categoryId" element={<CategoryBooks />} />
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="/borrowed" element={<ComingSoon title="Borrow Book" />} />
           <Route path="/settings" element={<ComingSoon title="Settings" />} />
         </Route>

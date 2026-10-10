@@ -1,4 +1,10 @@
 .book-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card__open {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -28,13 +34,13 @@
   object-fit: cover;
 }
 
-.book-card:hover .book-card__cover,
-.book-card:focus-visible .book-card__cover {
+.book-card__open:hover .book-card__cover,
+.book-card__open:focus-visible .book-card__cover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
 
-.book-card:focus-visible {
+.book-card__open:focus-visible {
   outline: none;
 }
 
@@ -46,4 +52,50 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ---------- Favorite heart ---------- */
+.book-card__heart {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--muted);
+  box-shadow: 0 1px 4px rgba(31, 26, 36, 0.18);
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.book-card__heart:hover {
+  color: var(--accent);
+  transform: scale(1.08);
+}
+
+.book-card__heart:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.book-card__heart--active {
+  color: var(--accent);
+  animation: heart-pop 0.28s ease;
+}
+
+@keyframes heart-pop {
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-card__heart--active {
+    animation: none;
+  }
 }

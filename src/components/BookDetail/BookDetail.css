@@ -97,3 +97,9 @@
     max-width: 180px;
   }
 }
+
+.detail__author {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}

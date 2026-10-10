@@ -199,3 +199,33 @@
     margin-left: 0;
   }
 }
+
+/* ---------- Message bar (e.g. a favorite could not be saved) ---------- */
+.user-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 0.82rem;
+}
+
+.user-alert button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.user-alert button:hover {
+  background: rgba(214, 40, 57, 0.12);
+}

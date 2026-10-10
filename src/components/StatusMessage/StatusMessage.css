@@ -1,0 +1,23 @@
+.status-message {
+  padding: 4rem 1rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.status-message--error {
+  color: var(--danger);
+}
+
+.status-message a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.status-message a:hover {
+  text-decoration: underline;
+}

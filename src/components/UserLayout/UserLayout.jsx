@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Compass, LayoutGrid, Heart, BookMarked, Settings, LogOut, Search, Bell, Menu, X } from "lucide-react";
 import { logout, getUser } from "../../utils/auth";
+import useFavorites from "../../hooks/useFavorites";
 import "./UserLayout.css";
 
 const NAV_ITEMS = [
@@ -19,6 +20,9 @@ export default function UserLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("Title");
+  const { favoriteIds, toggleFavorite, error: favoritesError, dismissError } = useFavorites();
+
+  const clearSearch = () => setQuery("");
 
   const name = user?.firstName || user?.first_name || "";
   const initial = (name || user?.email || "U").charAt(0).toUpperCase();
@@ -33,7 +37,10 @@ export default function UserLayout() {
             <NavLink
               key={path}
               to={path}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                clearSearch();
+              }}
               className={({ isActive }) =>
                 `user-sidebar__link ${isActive ? "user-sidebar__link--active" : ""}`
               }
@@ -86,7 +93,16 @@ export default function UserLayout() {
         </header>
 
         <main className="user-main">
-          <Outlet context={{ query, filter }} />
+          {favoritesError && (
+            <div className="user-alert" role="alert">
+              <span>{favoritesError}</span>
+              <button type="button" onClick={dismissError} aria-label="Dismiss message">
+                <X size={14} />
+              </button>
+            </div>
+          )}
+
+          <Outlet context={{ query, filter, clearSearch, favoriteIds, toggleFavorite }} />
         </main>
       </div>
     </div>
