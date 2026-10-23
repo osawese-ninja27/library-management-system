@@ -103,3 +103,64 @@
   font-size: 0.9rem;
   color: var(--muted);
 }
+
+/* ---------- Request a book ---------- */
+.detail__request {
+  margin-top: 1.4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.detail__copies {
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.detail__copies--none {
+  color: var(--danger);
+}
+
+.detail__button {
+  padding: 0.65rem 1.4rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.detail__button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.detail__button:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.detail__success {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.detail__success a {
+  display: inline-block;
+  margin-left: 0.25rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.detail__error {
+  margin-top: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}

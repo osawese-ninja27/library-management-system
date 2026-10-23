@@ -1,5 +1,5 @@
 import { Link, useLocation, Outlet } from "react-router-dom";
-import { Book, Tag, Users, KeyRound, LogOut } from "lucide-react";
+import { Book, Tag, Users, ClipboardList, KeyRound, LogOut } from "lucide-react";
 import { logout, getUser } from "../../../utils/auth";
 import "./AdminLayout.css";
 
@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { label: "Books", icon: Book, path: "/admin/books" },
   { label: "Categories", icon: Tag, path: "/admin/categories" },
   { label: "Users", icon: Users, path: "/admin/users" },
+  { label: "Borrowed Books", icon: ClipboardList, path: "/admin/borrowed" },
   { label: "Change Password", icon: KeyRound, path: "/admin/password" },
 ];
 

@@ -1,0 +1,142 @@
+/* Three colours: ink (text), green (actions), red (overdue and errors only).
+   Change them here if your admin pages use different ones. */
+.bb-page {
+  --bb-ink: #1f2933;
+  --bb-muted: #6b7280;
+  --bb-line: #e3e5e8;
+  --bb-green: #1f3d2b;
+  --bb-red: #c0262d;
+  color: var(--bb-ink);
+}
+
+.bb-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 18px;
+}
+
+.bb-panel {
+  padding-top: 20px;
+}
+
+.bb-message {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.bb-message--error {
+  color: var(--bb-red);
+  background: #fdf0f0;
+  border: 1px solid #f3c7c9;
+}
+
+.bb-message--ok {
+  color: var(--bb-green);
+  background: #eef4f0;
+  border: 1px solid #cfdfd5;
+}
+
+.bb-empty {
+  color: var(--bb-muted);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.bb-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--bb-line);
+  border-radius: 10px;
+}
+
+.bb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 640px;
+}
+
+.bb-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--bb-muted);
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--bb-line);
+  white-space: nowrap;
+}
+
+.bb-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--bb-line);
+  vertical-align: middle;
+}
+
+.bb-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.bb-overdue {
+  color: var(--bb-red);
+  font-weight: 600;
+}
+
+.bb-row--overdue {
+  background: #fdf6f6;
+}
+
+.bb-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.bb-btn {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--bb-line);
+  background: #fff;
+  color: var(--bb-ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.bb-btn:hover:not(:disabled) {
+  border-color: var(--bb-ink);
+}
+
+.bb-btn--primary {
+  background: var(--bb-green);
+  border-color: var(--bb-green);
+  color: #fff;
+}
+
+.bb-btn--primary:hover:not(:disabled) {
+  border-color: var(--bb-green);
+  filter: brightness(1.15);
+}
+
+.bb-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bb-btn:focus-visible {
+  outline: 2px solid var(--bb-green);
+  outline-offset: 2px;
+}
+
+.bb-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--bb-muted);
+}
+
+.bb-pager div {
+  display: flex;
+  gap: 8px;
+}

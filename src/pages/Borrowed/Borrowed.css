@@ -1,0 +1,116 @@
+.borrowed__section {
+  margin-bottom: 2rem;
+}
+
+.borrowed__section h2 {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.borrow-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.borrow-row--past {
+  background: transparent;
+}
+
+.borrow-row__cover {
+  flex: none;
+  width: 48px;
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.borrow-row__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.borrow-row__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.borrow-row__title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.borrow-row__meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.borrow-row__pill {
+  margin-top: 0.3rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* Declined and not-collected are plain grey; red is kept for alerts only. */
+.borrow-row__pill--rejected,
+.borrow-row__pill--expired,
+.borrow-row__pill--returned {
+  background: var(--bg);
+  color: var(--muted);
+}
+
+.borrow-row__time {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  text-align: right;
+}
+
+.borrow-row__label {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.borrow-row__date {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .borrow-row {
+    flex-wrap: wrap;
+  }
+  .borrow-row__time {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--line);
+  }
+}

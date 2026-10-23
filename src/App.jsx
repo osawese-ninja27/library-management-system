@@ -5,6 +5,7 @@ import Discover from "./pages/Discover/Discover";
 import Categories from "./pages/Categories/Categories";
 import CategoryBooks from "./pages/Categories/CategoryBooks";
 import Favorites from "./pages/Favorites/Favorites";
+import Borrowed from "./pages/Borrowed/Borrowed";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
 import UserLayout from "./components/UserLayout/UserLayout";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -12,6 +13,7 @@ import AdminLayout from "./pages/admin/AdminLayout/AdminLayout";
 import ManageBooks from "./pages/admin/ManageBooks/ManageBooks";
 import ManageCategories from "./pages/admin/ManageCategories/ManageCategories";
 import ManageUsers from "./pages/admin/ManageUsers/ManageUsers";
+import BorrowedBooks from "./pages/admin/BorrowedBooks/BorrowedBooks";
 import ChangePassword from "./pages/admin/ChangePassword/ChangePassword";
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:categoryId" element={<CategoryBooks />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/borrowed" element={<ComingSoon title="Borrow Book" />} />
+          <Route path="/borrowed" element={<Borrowed />} />
           <Route path="/settings" element={<ComingSoon title="Settings" />} />
         </Route>
       </Route>
@@ -40,6 +42,7 @@ function App() {
           <Route path="books" element={<ManageBooks />} />
           <Route path="categories" element={<ManageCategories />} />
           <Route path="users" element={<ManageUsers />} />
+          <Route path="borrowed" element={<BorrowedBooks />} />
           <Route path="password" element={<ChangePassword />} />
         </Route>
       </Route>

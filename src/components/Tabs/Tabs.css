@@ -1,0 +1,33 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  border-bottom: 1px solid #e3e5e8;
+}
+
+.tabs__tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 10px 2px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.tabs__tab:hover {
+  color: #1f2933;
+}
+
+.tabs__tab--active {
+  color: #1f2933;
+  font-weight: 600;
+  border-bottom-color: #1f3d2b;
+}
+
+.tabs__tab:focus-visible {
+  outline: 2px solid #1f3d2b;
+  outline-offset: 2px;
+}

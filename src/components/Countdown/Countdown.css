@@ -1,0 +1,18 @@
+.countdown {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.countdown--quiet {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Red is only for alerts: the last day of a loan, or time already up. */
+.countdown--urgent,
+.countdown--over {
+  color: var(--danger);
+}

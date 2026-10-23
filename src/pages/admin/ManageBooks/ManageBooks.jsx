@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Plus, Pencil, Trash2, Search, BookOpen } from "lucide-react";
-import { getToken } from "../../../utils/auth";
+import { apiFetch } from "../../../utils/api";
 import BookFormModal from "./BookFormModal";
 import "./ManageBooks.css";
 
@@ -35,13 +35,11 @@ export default function ManageBooks() {
   async function handleDelete(id) {
     if (!confirm("Delete this book?")) return;
 
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/books/${id}`, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${getToken()}` },
-    });
-
-    if (!res.ok) {
-      setError("Could not delete the book.");
+    try {
+      await apiFetch(`/api/books/${id}`, { method: "DELETE" });
+    } catch (err) {
+      // The server explains why, e.g. the book has borrowing records and must stay.
+      if (err.status !== 401) setError(err.message);
       return;
     }
 
