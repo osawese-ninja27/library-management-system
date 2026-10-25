@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { X, BookOpen } from "lucide-react";
 import { requestBook } from "../../api/borrowings";
 import "./BookDetail.css";
+import "./BookDetailNotes.css";
 
 export default function BookDetail({ book, onClose }) {
   const [state, setState] = useState("idle"); // idle | sending | done
@@ -83,6 +84,11 @@ export default function BookDetail({ book, onClose }) {
                 {state === "sending" ? "Requesting…" : soldOut ? "Not available" : "Request this book"}
               </button>
             )}
+
+            {/* Opens this book's note on the Notes page. */}
+            <Link to={`/notes/${book.id}`} className="detail__notes">
+              Notes
+            </Link>
 
             {error && (
               <p className="detail__error" role="alert">

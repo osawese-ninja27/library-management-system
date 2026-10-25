@@ -6,6 +6,8 @@ import Categories from "./pages/Categories/Categories";
 import CategoryBooks from "./pages/Categories/CategoryBooks";
 import Favorites from "./pages/Favorites/Favorites";
 import Borrowed from "./pages/Borrowed/Borrowed";
+import Notes from "./pages/Notes/Notes";
+import NoteEditor from "./pages/Notes/NoteEditor";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
 import UserLayout from "./components/UserLayout/UserLayout";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -31,6 +33,8 @@ function App() {
           <Route path="/categories/:categoryId" element={<CategoryBooks />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/borrowed" element={<Borrowed />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes/:bookId" element={<NoteEditor />} />
           <Route path="/settings" element={<ComingSoon title="Settings" />} />
         </Route>
       </Route>
