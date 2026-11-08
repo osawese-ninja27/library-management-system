@@ -20,7 +20,7 @@ export default function Login() {
     setError("");
 
     if (!email.trim() || !password) {
-      setError("Enter your email and password.");
+      setError("Please enter a valid email address and your password.");
       return;
     }
 
@@ -65,14 +65,14 @@ export default function Login() {
         <div className="topbar__signup">
           <span>Don&rsquo;t have an account?</span>
           <Link className="button" to="/register">
-              Sign up
+              Sign Up
           </Link>
         </div>
       </header>
 
       <main className="login-main">
         <form className="login-form" onSubmit={handleSubmit} noValidate>
-          <h1>Welcome </h1>
+          <h1>Welcome Back</h1>
 
           <div className="field">
             <label htmlFor="email">Email</label>

@@ -1,0 +1,51 @@
+.alert-dialog__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(31, 26, 36, 0.4);
+}
+
+.alert-dialog {
+  width: min(360px, 100%);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+/* Red is used for alerts only, so the title is the one red thing here. */
+.alert-dialog__title {
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--danger);
+}
+
+.alert-dialog__message {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.alert-dialog__close {
+  width: 100%;
+  padding: 0.85rem;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.alert-dialog__close:hover {
+  background: var(--accent-soft);
+}

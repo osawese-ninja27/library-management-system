@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Compass, LayoutGrid, Heart, BookMarked, Settings, LogOut, Search, Bell, Menu, X } from "lucide-react";
 import { logout, getUser } from "../../utils/auth";
+import { NotebookPen } from "lucide-react"; 
 import useFavorites from "../../hooks/useFavorites";
 import "./UserLayout.css";
 
@@ -10,7 +11,9 @@ const NAV_ITEMS = [
   { label: "Categories", icon: LayoutGrid, path: "/categories" },
   { label: "Favorites", icon: Heart, path: "/favorites" },
   { label: "Borrow Book", icon: BookMarked, path: "/borrowed" },
+  { label: "Notes", icon: NotebookPen, path: "/notes" },
   { label: "Settings", icon: Settings, path: "/settings" },
+  
 ];
 
 const FILTERS = ["Title", "Genre", "Category"];

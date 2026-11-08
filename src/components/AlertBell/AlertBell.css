@@ -1,0 +1,33 @@
+/* Size, border and colour come from .user-topbar__icon in UserLayout.css. This file only adds
+   the shake and the small red dot. */
+.alert-bell {
+  position: relative;
+}
+
+.alert-bell__dot {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+.alert-bell--ring svg {
+  transform-origin: top center;
+  animation: alert-bell-shake 1.6s ease-in-out infinite;
+}
+
+@keyframes alert-bell-shake {
+  0%, 70%, 100% { transform: rotate(0); }
+  10%, 30%, 50% { transform: rotate(-14deg); }
+  20%, 40%, 60% { transform: rotate(14deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alert-bell--ring svg {
+    animation: none;
+  }
+}
