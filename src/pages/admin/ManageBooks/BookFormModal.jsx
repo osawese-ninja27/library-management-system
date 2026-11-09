@@ -10,6 +10,7 @@ function formFromBook(book) {
     description: book?.description || "",
     genre: book?.genre || "",
     categoryId: book?.category_id || "",
+    totalCopies: book?.total_copies ?? 2, // new: number of physical copies
   };
 }
 
@@ -89,6 +90,7 @@ export default function BookFormModal({ book, onClose, onSaved }) {
         genre: form.genre,
         categoryId: form.categoryId || null,
         coverImageUrl,
+        totalCopies: form.totalCopies, // new
       };
 
       const url = isEdit
@@ -182,6 +184,26 @@ export default function BookFormModal({ book, onClose, onSaved }) {
                 <input name="genre" value={form.genre} onChange={handleChange} placeholder="e.g. Historical fiction" />
               </label>
             </div>
+
+            {/* New: number of physical copies the library owns of this book */}
+            <label className="form-field">
+              Number of copies
+              <input
+                type="number"
+                name="totalCopies"
+                min="0"
+                max="100"
+                step="1"
+                required
+                value={form.totalCopies}
+                onChange={handleChange}
+              />
+              {isEdit && typeof book.available_copies === "number" && book.total_copies > book.available_copies && (
+                <span className="form-field__hint">
+                  {book.total_copies - book.available_copies} currently borrowed or held, so the total can't go below that.
+                </span>
+              )}
+            </label>
 
             <label className="form-field">
               Description
