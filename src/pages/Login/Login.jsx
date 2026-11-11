@@ -16,8 +16,7 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log("API URL is:", import.meta.env.VITE_API_URL);
-    setError("");
+      setError("");
 
     if (!email.trim() || !password) {
       setError("Please enter a valid email address and your password.");
