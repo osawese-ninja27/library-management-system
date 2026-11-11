@@ -229,3 +229,43 @@
 .user-alert button:hover {
   background: rgba(214, 40, 57, 0.12);
 }
+.user-search {
+  min-width: 0;
+}
+
+.user-search input {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .user-topbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .user-topbar__menu {
+    order: 1;
+  }
+
+  .user-topbar__icon {
+    order: 2;
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .user-topbar__profile {
+    order: 3;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .user-search {
+    order: 4;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}
